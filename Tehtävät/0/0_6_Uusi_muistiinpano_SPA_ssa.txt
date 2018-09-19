@@ -1,0 +1,21 @@
+kayttaja->selain:
+note left of selain
+    Käyttäjä lisää muistiinpanon ja painaa Talleta nappulaa
+end note
+
+selain->palvelin: POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+selain->palvelin: Content: lisättävä muistiinpano
+selain->palvelin: Date: CURRENT_DATE
+
+note left of palvelin
+  tallennetaan uusi muistiinpano palvelimelle
+end note
+palvelin->selain: status 201, Created
+
+note left of selain
+ selain näyttää HTML:n johon listattu muistiinpanot
+ ja näyttää lomakkeen jolla voi syöttää lisää 
+ muistiinpanoja. Viimeksi lähetetty muistiinpano on
+ lisäytty listaan selaimessa samalla kuin se 
+ lähetettiin palvelimelle
+end note
