@@ -7,7 +7,7 @@ class App extends React.Component {
       this.state = {
         huono: 0,
         neutraali: 0,
-        hyva: 0
+        hyva: 0 
       }
     }
     
@@ -38,7 +38,21 @@ class App extends React.Component {
             <p>Hyvä {this.state.hyva}</p>
             <p>Neutraali {this.state.neutraali}</p>
             <p>Huono {this.state.huono}</p>
+            <p>Keskiarvo {keskiarvo()}</p> 
+            <p>Positiivisia {positiivisia()} %</p> 
           </div>
+        )
+      }
+
+      const keskiarvo = () => {
+        return (
+          (this.state.hyva - this.state.huono) / (this.state.hyva + this.state.neutraali + this.state.huono)
+        )
+      }
+
+      const positiivisia = () => {
+        return (
+          this.state.hyva / (this.state.huono + this.state.neutraali + this.state.hyva) * 100
         )
       }
       
